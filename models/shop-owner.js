@@ -3,13 +3,14 @@ const { Schema, model } = require('mongoose')
 const bcrypt = require('bcrypt')
 
 const shopOwnerSchema = new Schema({
-    first_name: { type: String, required: true },
-    last_name: { type: String, required: true },
+    shop_name: { type: String, required: true },
+    owner_name: { type: String, required: true },
     email: { type: String, required: true },
-    date: { type: String, required: true },
+    license: { type: String, required: true },
     address: { type: String, required: true },
     phone_number: { type: String, required: true },
-    city: { type: String, required: true },
+    equipments: { type: String, required: true },
+    category: { type: String, required: true },
     password: { type: String, required: true }
 })
 
