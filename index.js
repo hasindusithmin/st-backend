@@ -1,9 +1,14 @@
 // install express with `npm install express` 
 const express = require('express')
 const mongoose = require('mongoose')
+const shopOwnerRoute = require('./routes/shop-owner')
 const app = express()
 
+app.use(express.json())
+
 app.get('/', (req, res) => res.sendStatus(200))
+
+app.use('/shop-owner',shopOwnerRoute)
 
 const DATABASE_URL = process.env.DATABASE_URL;
 
