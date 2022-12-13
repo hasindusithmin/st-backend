@@ -1,6 +1,7 @@
 // install express with `npm install express` 
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const shopOwnerRoute = require('./routes/shop-owner')
 const travallerRoute = require('./routes/travaller')
@@ -8,6 +9,7 @@ const tripRoute = require('./routes/trip')
 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
 
