@@ -2,6 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const shopOwnerRoute = require('./routes/shop-owner')
+const travallerRoute = require('./routes/travaller')
 const app = express()
 
 app.use(express.json())
@@ -9,6 +10,7 @@ app.use(express.json())
 app.get('/', (req, res) => res.sendStatus(200))
 
 app.use('/shop-owner',shopOwnerRoute)
+app.use('/traveller',travallerRoute)
 
 const DATABASE_URL = process.env.DATABASE_URL;
 

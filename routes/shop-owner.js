@@ -16,8 +16,8 @@ shopOwnerRouter.get('/',async(req,res)=>{
 
 shopOwnerRouter.post('/',async(req,res)=>{
     try {
-        const {first_name,last_name,email,date,address,phone_number,city,password} = req.body;
-        const shopOwner = await shopOwnerModel.create({first_name,last_name,email,date,address,phone_number,city,password})
+        const {shop_name,owner_name,email,license,address,phone_number,equipments,category,password} = req.body;
+        const shopOwner = await shopOwnerModel.create({shop_name,owner_name,email,license,address,phone_number,equipments,category,password})
         res.status(200).json(shopOwner)
     } catch (error) {
         res.status(500).json({error:error.message})
