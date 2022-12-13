@@ -20,6 +20,18 @@ travellerSchema.pre('save', async function (next) {
     next()
 })
 
+travellerSchema.statics.login = async function (email, password) {
+    const user = await this.findOne({ email });
+    if (user) {
+        const auth = await bcrypt.compare(password, user.password);
+        if (auth) {
+            return user;
+        }
+        throw Error('incorrect password');
+    }
+    throw Error('incorrect email');
+};
+
 const travellerModel = model('traveller', travellerSchema)
 
 module.exports = travellerModel;
