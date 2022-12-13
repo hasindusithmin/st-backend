@@ -39,5 +39,14 @@ shopOwnerRouter.post('/login',async(req,res)=>{
     }
 })
 
+shopOwnerRouter.get('/logout',async(req,res)=>{
+    try {
+        res.cookie('token','',{maxAge:0})
+        res.sendStatus(202)
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 module.exports = shopOwnerRouter;
 
