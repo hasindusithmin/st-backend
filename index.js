@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 const shopOwnerRoute = require('./routes/shop-owner')
 const travallerRoute = require('./routes/travaller')
+const tripRoute = require('./routes/trip')
+
 const app = express()
 
 app.use(express.json())
@@ -13,6 +15,7 @@ app.get('/', (req, res) => res.sendStatus(200))
 
 app.use('/shop-owner',shopOwnerRoute)
 app.use('/traveller',travallerRoute)
+app.use('/trip',tripRoute)
 
 const DATABASE_URL = process.env.DATABASE_URL;
 

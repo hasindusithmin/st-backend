@@ -13,6 +13,16 @@ tripRoute.get('/',async(req,res)=>{
     }
 })
 
+tripRoute.get('/:id',async(req,res)=>{
+    try {
+        const {id} = req.params;
+        const trip = await tripModel.findById({_id:id})
+        res.status(200).json(trip)
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
 tripRoute.post('/',async(req,res)=>{
     try {
         const {start_date,end_date,category,no_of_adults,no_of_kids,start_location,end_location} = req.body;
@@ -43,3 +53,5 @@ tripRoute.get('/:id',async(req,res)=>{
         res.status(500).json({error:error.message})
     }
 })
+
+module.exports = tripRoute;
