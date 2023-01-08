@@ -70,6 +70,19 @@ shopOwnerRouter.post('/login',async(req,res)=>{
     }
 })
 
+shopOwnerRouter.delete('/:id',async(req,res)=>{
+    try {
+        const {id} = req.params;
+        if (id == undefined) throw Error("Id (param) is required.")
+        const shopOwner = await shopOwnerModel.findByIdAndDelete(id)
+        res.status(200).json(shopOwner)
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+
+
 
 
 module.exports = shopOwnerRouter;
