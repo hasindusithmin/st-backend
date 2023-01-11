@@ -9,7 +9,6 @@ const travallerRoute = require('./routes/travaller')
 const smartTravallerRoute = require('./routes/smart-travaller')
 const tripRoute = require('./routes/trip')
 const guiderRouter = require('./routes/guider')
-require('dotenv').config();
 
 
 
@@ -30,7 +29,7 @@ app.use('/guider',guiderRouter)
 
 const DATABASE_URL = process.env.DATABASE_URL; 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 mongoose.set('strictQuery', true);
 mongoose.connect(DATABASE_URL)
